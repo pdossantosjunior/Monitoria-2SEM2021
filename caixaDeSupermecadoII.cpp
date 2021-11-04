@@ -9,7 +9,7 @@ using namespace std;
 
 	cout<<"Abertura de caixa!"<<endl<<endl;
 	
-	cout<<"Informe o valor dos produtos solicitados"<<endl;
+	cout<<"Informe o valor dos produtos"<<endl;
 
 
     system("pause");
