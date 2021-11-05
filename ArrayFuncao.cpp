@@ -17,8 +17,10 @@ using namespace std;
 
 	int array[10];
 	int conta=0, i;
+	int valor1, valor2, total;
 	
-	int ValorArray(int valor[], int count); //Prototipação da função
+	int FuncaoDoisValores(int v1, int v2); // Prototipação da função com dois valores
+	void ValorArray(int valor[], int count); //Prototipação da função com array
 
 	int main(){
 
@@ -36,11 +38,22 @@ using namespace std;
 		for (i=0;i<=10;i++){
 		
 		cout<<"O valor de i é: "<<i<<" o número do array é: "<<array[i]<<endl;		
-	}*/	
+	}*/
+	
+	
+	
+	
+	valor1 = 30;
+	valor2 = 40;
+	
+	//FuncaoDoisValores(valor1,valor2);
+	
+	cout<<"A soma dos valores é: "<<FuncaoDoisValores(valor1,valor2)<<endl;
+		
 	
 	//Laço de repetição com função e vetor(array)
 	
-	/*	for (i=0;i<=10;i++){
+	/*for (i=0;i<=10;i++){
 		
 		cout<<"O valor de i é: "<<i;
 		ValorArray(array, i);
@@ -52,8 +65,23 @@ using namespace std;
 	//system("pause");
 	}
 	
+	//Função para receber e devolver dois valores
+	int FuncaoDoisValores(int v1, int v2){
+		
+		v1=v2;
+		v2=v1+v2;
+		total=v1+v2;
+		
+		cout<<"O valor do primeiro número é: "<<v1<<endl;
+		cout<<"O valor do segundo número e: "<<v2<<endl;	
+		
+		return total;
+	}
+	
+	
+	
 	//Função para imprimir o valor do array
-	int ValorArray(int valor[], int count){
+	void ValorArray(int valor[], int count){
 		
 		conta=conta+3;
 		array[i]=conta;

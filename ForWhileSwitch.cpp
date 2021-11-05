@@ -3,7 +3,7 @@
 #include <locale.h>
 using namespace std;
 
-	int numero=0, i, total;
+	int numero=0, i, total, caso;
 
 	int main(){
 
@@ -56,7 +56,29 @@ using namespace std;
 	//i=i+1;
 	i++;		
 	}
-
+	
+	//Base do Switch Case
+	
+	cout<<"Digite um número de um a quatro: ";
+	cin>>caso;
+	
+	switch(caso){
+		
+		case 1:
+			cout<<"É um"<<endl;
+			break;
+		case 2:
+			cout<<"É dois"<<endl;
+			break;
+		case 3:
+			cout<<"É três"<<endl;
+			break;
+		case 4:
+			cout<<"É quatro"<<endl;
+			break;
+		defaut: 
+			cout<<"A opção digitada não foi reconhecida!"<<endl;		
+	}
 
     system("pause");
 	}
