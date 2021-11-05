@@ -77,7 +77,7 @@ using namespace std;
 			cout<<"É quatro"<<endl;
 			break;
 		defaut: 
-			cout<<"A opção digitada não foi reconhecida"<<endl;		
+			cout<<"A opção digitada não foi reconhecida!"<<endl;		
 	}
 
     system("pause");
