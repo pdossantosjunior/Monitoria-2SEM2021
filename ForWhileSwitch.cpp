@@ -76,12 +76,9 @@ using namespace std;
 		case 4:
 			cout<<"É quatro"<<endl;
 			break;
-		defaut: 
+		default: 
 			cout<<"A opção digitada não foi reconhecida!"<<endl;		
 	}
 
     system("pause");
 	}
-
-
-
