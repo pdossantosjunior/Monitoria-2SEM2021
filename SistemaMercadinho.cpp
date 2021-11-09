@@ -10,6 +10,7 @@ using namespace std;
 
 	int opcao; //Variáveis do menu
 	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variáveis do caixa
+	int opcaoProduto; //Variáveis de produtos
 	
 	
 	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
@@ -18,6 +19,10 @@ using namespace std;
 	void FsaldoCaixa();
 	void FentradaCaixa();
 	void FsaidaCaixa();
+	
+	//PROTOTIPAGEM DAS FUNÇÕES DO ENTRADA DE PRODUTOS
+	
+	void FentradaProdutos();
 	
 	//FUNÇÃO PRINCIPAL
 
@@ -40,7 +45,7 @@ using namespace std;
 		case 1:
 			FcontroleCaixa(); break;
 		case 2:
-			cout<<"				É dois"<<endl<<endl; Sleep(1000); break;
+			FentradaProdutos(); break;
 		case 3:
 			cout<<"				É três"<<endl<<endl; Sleep(1000); break;
 		case 4:
@@ -120,6 +125,44 @@ using namespace std;
 		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
 	}
 	
+	//FUNÇÃO DE ENTRADA DE PRODUTOS
+	
+	void FentradaProdutos(){
+		
+	system("cls"); //system("clear"); - Para Linux
+		
+		do{ 
+		
+		cout<<"				Olá, você está no menu de entrada de produtos"<<endl
+		<<"				Escolha uma das opções abaixo:"<<endl<<endl;
+		
+		cout<<"				| 1 | Entrada de produto"<<endl;
+		cout<<"				| 2 | Saída de produto"<<endl;
+		cout<<"				| 3 | Saldo de produtos em estoque"<<endl;
+		cout<<"				| 0 | Voltar ao menu anterior"<<endl<<endl;
+		cout<<"				";cin>>opcaoProduto;cout<<endl;
+		
+		switch (opcaoProduto){
+			
+			case 1:
+				FentradaCaixa(); break;
+			case 2:
+				FsaidaCaixa(); break;
+			case 3:
+				FsaldoCaixa(); break;
+			case 0:
+				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
+			default:
+				cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);
+			
+		}
+		
+		system("cls"); //system("clear"); - Para Linux
+		
+		} while (opcaoProduto !=0);
+		
+		
+	}
 		
 	
 	/////
