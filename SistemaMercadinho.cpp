@@ -8,13 +8,16 @@ using namespace std;
 
 	//VARIÁVEIS
 
-	int opcao, opcaoCCaixa;
+	int opcao; //Variáveis do menu
+	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variáveis do caixa
 	
-	//PROTOTIPAGEM DAS FUNÇÕES
+	
+	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
 
-	void ControleCaixa();
-	
-	
+	void FcontroleCaixa();
+	void FsaldoCaixa();
+	void FentradaCaixa();
+	void FsaidaCaixa();
 	
 	//FUNÇÃO PRINCIPAL
 
@@ -35,7 +38,7 @@ using namespace std;
 		switch(opcao){
 		
 		case 1:
-			ControleCaixa();
+			FcontroleCaixa();
 			break;
 		case 2:
 			cout<<"				É dois"<<endl<<endl; Sleep(1000);
@@ -64,7 +67,7 @@ using namespace std;
 	
 	//FUNÇÃO DE CONTROLE DE CAIXA
 	
-	void ControleCaixa(){
+	void FcontroleCaixa(){
 		
 		system("cls"); //system("clear"); - Para Linux
 		
@@ -75,13 +78,61 @@ using namespace std;
 		
 		cout<<"				| 1 | Entrada de caixa"<<endl;
 		cout<<"				| 2 | Saída de caixa"<<endl;
-		cout<<"				| 0 | Encerrar"<<endl<<endl;
-		cout<<"				";cin>>opcaoCCaixa;cout<<endl;
+		cout<<"				| 3 | Saldo do caixa"<<endl;
+		cout<<"				| 0 | Voltar ao menu anterior"<<endl<<endl;
+		cout<<"				";cin>>opcaoCaixa;cout<<endl;
+		
+		switch (opcaoCaixa){
+			
+			case 1:
+				FentradaCaixa();
+				break;
+			case 2:
+				FsaidaCaixa();
+				break;
+			case 3:
+				FsaldoCaixa();
+				break;
+			case 0:
+				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500);
+				break;
+			default:
+				cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);
+			
+		}
 		
 		system("cls"); //system("clear"); - Para Linux
 		
-	} while (opcaoCCaixa !=0);
+		} while (opcaoCaixa !=0);
+	}
+	
+	void FsaldoCaixa(){
 		
-		
+		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl; Sleep(2000);
+		//system("pause");		
 		
 	}
+	
+	void FentradaCaixa(){
+		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
+		cout<<"				Informe o valor da entrada: R$ ";
+		cin>>varianteCaixa; cout<<endl<<endl;
+		saldoCaixa=saldoCaixa+varianteCaixa;
+		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
+	}
+	
+	void FsaidaCaixa(){
+		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
+		cout<<"				Informe o valor da saída: R$ ";
+		cin>>varianteCaixa; cout<<endl<<endl;
+		saldoCaixa=saldoCaixa-varianteCaixa;
+		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
+	}
+	
+	
+	
+	
+	
+	
+	/////
+
