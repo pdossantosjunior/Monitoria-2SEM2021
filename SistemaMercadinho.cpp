@@ -120,10 +120,7 @@ using namespace std;
 		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
 	}
 	
-	
-	
-	
-	
+		
 	
 	/////
 
