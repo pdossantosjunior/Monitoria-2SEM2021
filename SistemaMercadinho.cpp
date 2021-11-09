@@ -73,9 +73,9 @@ using namespace std;
 		
 		do{ 
 		
-		cout<<"				Olá, você está no menu de controle de caixa"<<endl
+		cout<<"				Olá, você está no menu de controle de caixa"<<endl   
 		<<"				Escolha uma das opções abaixo:"<<endl<<endl;
-		
+				
 		cout<<"				| 1 | Entrada de caixa"<<endl;
 		cout<<"				| 2 | Saída de caixa"<<endl;
 		cout<<"				| 3 | Saldo do caixa"<<endl;
