@@ -38,20 +38,15 @@ using namespace std;
 		switch(opcao){
 		
 		case 1:
-			FcontroleCaixa();
-			break;
+			FcontroleCaixa(); break;
 		case 2:
-			cout<<"				É dois"<<endl<<endl; Sleep(1000);
-			break;
+			cout<<"				É dois"<<endl<<endl; Sleep(1000); break;
 		case 3:
-			cout<<"				É três"<<endl<<endl; Sleep(1000);
-			break;
+			cout<<"				É três"<<endl<<endl; Sleep(1000); break;
 		case 4:
-			cout<<"				É quatro"<<endl<<endl; Sleep(1000);
-			break;
+			cout<<"				É quatro"<<endl<<endl; Sleep(1000); break;
 		case 0:
-			cout<<"				Até breve!"<<endl<<endl; Sleep(2000);
-			break;
+			cout<<"				Até breve!"<<endl<<endl; Sleep(2000); break;
 		default: 
 			cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(3000);		
 		}
@@ -62,7 +57,7 @@ using namespace std;
 		
 	
 
-    system("pause");
+    //system("pause");
 	}
 	
 	//FUNÇÃO DE CONTROLE DE CAIXA
@@ -85,17 +80,13 @@ using namespace std;
 		switch (opcaoCaixa){
 			
 			case 1:
-				FentradaCaixa();
-				break;
+				FentradaCaixa(); break;
 			case 2:
-				FsaidaCaixa();
-				break;
+				FsaidaCaixa(); break;
 			case 3:
-				FsaldoCaixa();
-				break;
+				FsaldoCaixa(); break;
 			case 0:
-				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500);
-				break;
+				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
 			default:
 				cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);
 			
