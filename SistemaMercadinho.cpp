@@ -10,7 +10,7 @@ using namespace std;
 
 	int opcao; //Variáveis do menu
 	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variáveis do caixa
-	int opcaoProduto; //Variáveis de produtos
+	int opcaoProduto, produtos[10]; //Variáveis de produtos
 	
 	
 	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
@@ -23,6 +23,8 @@ using namespace std;
 	//PROTOTIPAGEM DAS FUNÇÕES DO ENTRADA DE PRODUTOS
 	
 	void FentradaProdutos();
+	void FentradaDeProdutos();
+	void FsaldoProdutos();
 	
 	//FUNÇÃO PRINCIPAL
 
@@ -145,11 +147,11 @@ using namespace std;
 		switch (opcaoProduto){
 			
 			case 1:
-				FentradaCaixa(); break;
+				FentradaDeProdutos(); break;
 			case 2:
 				FsaidaCaixa(); break;
 			case 3:
-				FsaldoCaixa(); break;
+				FsaldoProdutos(); break;
 			case 0:
 				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
 			default:
@@ -159,7 +161,44 @@ using namespace std;
 		
 		system("cls"); //system("clear"); - Para Linux
 		
-		} while (opcaoProduto !=0);
+		} while (opcaoProduto != 0);
+		
+		
+	}
+	
+	void FentradaDeProdutos(){
+		
+		system("cls"); //system("clear"); - Para Linux
+		
+		FsaldoProdutos();Sleep(3000);
+		
+		/*cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
+		cout<<"				Informe o valor da entrada: R$ ";
+		cin>>varianteCaixa; cout<<endl<<endl;
+		saldoCaixa=saldoCaixa+varianteCaixa;
+		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);*/	
+		
+		
+		
+
+		
+	}
+	
+	void FsaldoProdutos(){
+		
+		system("cls"); //system("clear"); - Para Linux
+		
+		cout<<"				COD 0001 Arroz pct 5kg ========= "<<produtos[0]<<endl;
+        cout<<"				COD 0002 Feijão pct 1kg ======== "<<produtos[1]<<endl;
+        cout<<"				COD 0003 Óleo 900ml ============ "<<produtos[2]<<endl;
+        cout<<"				COD 0004 Açucar pct 1kg ======== "<<produtos[3]<<endl;
+        cout<<"				COD 0005 Batata kg ============= "<<produtos[4]<<endl;
+        cout<<"				COD 0006 Cebola kg ============= "<<produtos[5]<<endl;
+        cout<<"				COD 0007 Alho kg =============== "<<produtos[6]<<endl;
+        cout<<"				COD 0008 Alface unid =========== "<<produtos[7]<<endl<<endl;
+		cout<<"				";system("pause");
+			
+		
 		
 		
 	}
