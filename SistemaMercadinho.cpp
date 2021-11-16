@@ -6,27 +6,27 @@
 
 using namespace std;
 
-	//VARIï¿½VEIS
+	//VARIÁVEIS
 
-	int opcao; //Variï¿½veis do menu
-	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variï¿½veis do caixa
-	int opcaoProduto, produtos[10]; //Variï¿½veis de produtos
+	int opcao; //Variáveis do menu
+	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variáveis do caixa
+	int opcaoProduto, produtos[10]; //Variáveis de produtos
 	
 	
-	//PROTOTIPAGEM DAS FUNï¿½ï¿½ES DO CAIXA
+	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
 
 	void FcontroleCaixa();
 	void FsaldoCaixa();
 	void FentradaCaixa();
 	void FsaidaCaixa();
 	
-	//PROTOTIPAGEM DAS FUNï¿½ï¿½ES DO ENTRADA DE PRODUTOS
+	//PROTOTIPAGEM DAS FUNÇÕES DO ENTRADA DE PRODUTOS
 	
 	void FentradaProdutos();
 	void FentradaDeProdutos();
 	void FsaldoProdutos();
 	
-	//FUNï¿½ï¿½O PRINCIPAL
+	//FUNÇÃO PRINCIPAL
 
 	int main(){
 
@@ -34,10 +34,10 @@ using namespace std;
 
 	do{
 		
-		cout<<"				Informe uma opï¿½ï¿½o:"<<endl<<endl;
+		cout<<"				Informe uma opção:"<<endl<<endl;
 		cout<<"				| 1 | Controle de caixa"<<endl;
 		cout<<"				| 2 | Entrada de produtos"<<endl;
-		cout<<"				| 3 | Balanï¿½o de Estoque"<<endl;
+		cout<<"				| 3 | Balanço de Estoque"<<endl;
 		cout<<"				| 4 | Vendas"<<endl;
 		cout<<"				| 0 | Encerrar"<<endl<<endl;
 		cout<<"				";cin>>opcao;cout<<endl;
@@ -49,13 +49,13 @@ using namespace std;
 		case 2:
 			FentradaProdutos(); break;
 		case 3:
-			cout<<"				ï¿½ trï¿½s"<<endl<<endl; Sleep(1000); break;
+			cout<<"				É três"<<endl<<endl; Sleep(1000); break;
 		case 4:
-			cout<<"				ï¿½ quatro"<<endl<<endl; Sleep(1000); break;
+			cout<<"				É quatro"<<endl<<endl; Sleep(1000); break;
 		case 0:
-			cout<<"				Atï¿½ breve!"<<endl<<endl; Sleep(2000); break;
+			cout<<"				Até breve!"<<endl<<endl; Sleep(2000); break;
 		default: 
-			cout<<"				A opï¿½ï¿½o digitada nï¿½o foi reconhecida!"<<endl<<endl; Sleep(3000);		
+			cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(3000);		
 		}
 		
 		system("cls"); //system("clear"); - Para Linux
@@ -67,7 +67,7 @@ using namespace std;
     //system("pause");
 	}
 	
-	//FUNï¿½ï¿½O DE CONTROLE DE CAIXA
+	//FUNÇÃO DE CONTROLE DE CAIXA
 	
 	void FcontroleCaixa(){
 		
@@ -75,11 +75,11 @@ using namespace std;
 		
 		do{ 
 		
-		cout<<"				Olï¿½, vocï¿½ estï¿½ no menu de controle de caixa"<<endl   
-		<<"				Escolha uma das opï¿½ï¿½es abaixo:"<<endl<<endl;
+		cout<<"				Olá, você está no menu de controle de caixa"<<endl   
+		<<"				Escolha uma das opções abaixo:"<<endl<<endl;
 				
 		cout<<"				| 1 | Entrada de caixa"<<endl;
-		cout<<"				| 2 | Saï¿½da de caixa"<<endl;
+		cout<<"				| 2 | Saída de caixa"<<endl;
 		cout<<"				| 3 | Saldo do caixa"<<endl;
 		cout<<"				| 0 | Voltar ao menu anterior"<<endl<<endl;
 		cout<<"				";cin>>opcaoCaixa;cout<<endl;
@@ -95,7 +95,7 @@ using namespace std;
 			case 0:
 				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
 			default:
-				cout<<"				A opï¿½ï¿½o digitada nï¿½o foi reconhecida!"<<endl<<endl; Sleep(2500);
+				cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);
 			
 		}
 		
@@ -106,28 +106,28 @@ using namespace std;
 	
 	void FsaldoCaixa(){
 		
-		cout<<"				O saldo atual em caixa ï¿½: R$ "<<saldoCaixa<<endl; Sleep(2000);
+		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl; Sleep(2000);
 		//system("pause");		
 		
 	}
 	
 	void FentradaCaixa(){
-		cout<<"				O saldo atual em caixa ï¿½: R$ "<<saldoCaixa<<endl<<endl;
+		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
 		cout<<"				Informe o valor da entrada: R$ ";
 		cin>>varianteCaixa; cout<<endl<<endl;
 		saldoCaixa=saldoCaixa+varianteCaixa;
-		cout<<"				O novo saldo atual em caixa ï¿½: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
+		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
 	}
 	
 	void FsaidaCaixa(){
-		cout<<"				O saldo atual em caixa ï¿½: R$ "<<saldoCaixa<<endl<<endl;
-		cout<<"				Informe o valor da saï¿½da: R$ ";
+		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
+		cout<<"				Informe o valor da saída: R$ ";
 		cin>>varianteCaixa; cout<<endl<<endl;
 		saldoCaixa=saldoCaixa-varianteCaixa;
-		cout<<"				O novo saldo atual em caixa ï¿½: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
+		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
 	}
 	
-	//FUNï¿½ï¿½O DE ENTRADA DE PRODUTOS
+	//FUNÇÃO DE ENTRADA DE PRODUTOS
 	
 	void FentradaProdutos(){
 		
@@ -135,11 +135,11 @@ using namespace std;
 		
 		do{ 
 		
-		cout<<"				Olï¿½, vocï¿½ estï¿½ no menu de entrada de produtos"<<endl
-		<<"				Escolha uma das opï¿½ï¿½es abaixo:"<<endl<<endl;
+		cout<<"				Olá, você está no menu de entrada de produtos"<<endl
+		<<"				Escolha uma das opções abaixo:"<<endl<<endl;
 		
 		cout<<"				| 1 | Entrada de produto"<<endl;
-		cout<<"				| 2 | Saï¿½da de produto"<<endl;
+		cout<<"				| 2 | Saída de produto"<<endl;
 		cout<<"				| 3 | Saldo de produtos em estoque"<<endl;
 		cout<<"				| 0 | Voltar ao menu anterior"<<endl<<endl;
 		cout<<"				";cin>>opcaoProduto;cout<<endl;
@@ -155,7 +155,7 @@ using namespace std;
 			case 0:
 				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
 			default:
-				cout<<"				A opï¿½ï¿½o digitada nï¿½o foi reconhecida!"<<endl<<endl; Sleep(2500);
+				cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);
 			
 		}
 		
@@ -172,11 +172,11 @@ using namespace std;
 		
 		FsaldoProdutos();Sleep(3000);
 		
-		/*cout<<"				O saldo atual em caixa ï¿½: R$ "<<saldoCaixa<<endl<<endl;
+		/*cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
 		cout<<"				Informe o valor da entrada: R$ ";
 		cin>>varianteCaixa; cout<<endl<<endl;
 		saldoCaixa=saldoCaixa+varianteCaixa;
-		cout<<"				O novo saldo atual em caixa ï¿½: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);*/	
+		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);*/	
 		
 		
 		
@@ -189,9 +189,9 @@ using namespace std;
 		system("cls"); //system("clear"); - Para Linux
 		
 		cout<<"				COD 0001 Arroz pct 5kg ========= "<<produtos[0]<<endl;
-        cout<<"				COD 0002 Feijï¿½o pct 1kg ======== "<<produtos[1]<<endl;
-        cout<<"				COD 0003 ï¿½leo 900ml ============ "<<produtos[2]<<endl;
-        cout<<"				COD 0004 Aï¿½ucar pct 1kg ======== "<<produtos[3]<<endl;
+        cout<<"				COD 0002 Feijão pct 1kg ======== "<<produtos[1]<<endl;
+        cout<<"				COD 0003 Óleo 900ml ============ "<<produtos[2]<<endl;
+        cout<<"				COD 0004 Açucar pct 1kg ======== "<<produtos[3]<<endl;
         cout<<"				COD 0005 Batata kg ============= "<<produtos[4]<<endl;
         cout<<"				COD 0006 Cebola kg ============= "<<produtos[5]<<endl;
         cout<<"				COD 0007 Alho kg =============== "<<produtos[6]<<endl;
@@ -199,7 +199,7 @@ using namespace std;
 		cout<<"				";system("pause");
 			
 		
-		
+	//teste	
 		
 	}
 		
