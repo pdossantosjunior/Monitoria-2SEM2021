@@ -199,7 +199,6 @@ using namespace std;
 		cout<<"				";system("pause");
 			
 		
-	//teste	
 		
 	}
 		
