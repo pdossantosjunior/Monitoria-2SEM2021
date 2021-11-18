@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <windows.h> //Biblioteca para usar o Sleep
+//#include <string> //Biblioteca String
 
 
 using namespace std;
@@ -10,7 +11,7 @@ using namespace std;
 
 	int opcao; //Variáveis do menu
 	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variáveis do caixa
-	int opcaoProduto, produtos[10]; //Variáveis de produtos
+	int opcaoProduto, quantProdutos[8], saidaProduto;  //Variáveis de produtos
 	
 	
 	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
@@ -22,9 +23,10 @@ using namespace std;
 	
 	//PROTOTIPAGEM DAS FUNÇÕES DO ENTRADA DE PRODUTOS
 	
-	void FentradaProdutos();
-	void FentradaDeProdutos();
-	void FsaldoProdutos();
+	void FbalancoEstoque();
+	void FentradaProduto();
+	void FsaldoProduto();
+	void FsaidaProduto();
 	
 	//FUNÇÃO PRINCIPAL
 
@@ -36,9 +38,8 @@ using namespace std;
 		
 		cout<<"				Informe uma opção:"<<endl<<endl;
 		cout<<"				| 1 | Controle de caixa"<<endl;
-		cout<<"				| 2 | Entrada de produtos"<<endl;
-		cout<<"				| 3 | Balanço de Estoque"<<endl;
-		cout<<"				| 4 | Vendas"<<endl;
+		cout<<"				| 2 | Balanço de Estoque"<<endl;
+		cout<<"				| 3 | Vendas"<<endl;
 		cout<<"				| 0 | Encerrar"<<endl<<endl;
 		cout<<"				";cin>>opcao;cout<<endl;
 		
@@ -47,7 +48,7 @@ using namespace std;
 		case 1:
 			FcontroleCaixa(); break;
 		case 2:
-			FentradaProdutos(); break;
+			FbalancoEstoque(); break;
 		case 3:
 			cout<<"				É três"<<endl<<endl; Sleep(1000); break;
 		case 4:
@@ -76,7 +77,7 @@ using namespace std;
 		do{ 
 		
 		cout<<"				Olá, você está no menu de controle de caixa"<<endl   
-		<<"				Escolha uma das opções abaixo:"<<endl<<endl;
+		<<"				Informe uma opção:"<<endl<<endl;
 				
 		cout<<"				| 1 | Entrada de caixa"<<endl;
 		cout<<"				| 2 | Saída de caixa"<<endl;
@@ -106,12 +107,17 @@ using namespace std;
 	
 	void FsaldoCaixa(){
 		
+		//system("cls"); //system("clear"); - Para Linux
+		
 		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl; Sleep(2000);
 		//system("pause");		
 		
 	}
 	
 	void FentradaCaixa(){
+		
+		system("cls"); //system("clear"); - Para Linux
+		
 		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
 		cout<<"				Informe o valor da entrada: R$ ";
 		cin>>varianteCaixa; cout<<endl<<endl;
@@ -120,6 +126,9 @@ using namespace std;
 	}
 	
 	void FsaidaCaixa(){
+		
+		system("cls"); //system("clear"); - Para Linux
+		
 		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
 		cout<<"				Informe o valor da saída: R$ ";
 		cin>>varianteCaixa; cout<<endl<<endl;
@@ -129,14 +138,14 @@ using namespace std;
 	
 	//FUNÇÃO DE ENTRADA DE PRODUTOS
 	
-	void FentradaProdutos(){
+	void FbalancoEstoque(){
 		
 	system("cls"); //system("clear"); - Para Linux
 		
 		do{ 
 		
-		cout<<"				Olá, você está no menu de entrada de produtos"<<endl
-		<<"				Escolha uma das opções abaixo:"<<endl<<endl;
+		cout<<"				Olá, você está no menu de balanço de estoque"<<endl
+		<<"				Informe uma opção:"<<endl<<endl;
 		
 		cout<<"				| 1 | Entrada de produto"<<endl;
 		cout<<"				| 2 | Saída de produto"<<endl;
@@ -147,11 +156,11 @@ using namespace std;
 		switch (opcaoProduto){
 			
 			case 1:
-				FentradaDeProdutos(); break;
+				FentradaProduto(); break;
 			case 2:
-				FsaidaCaixa(); break;
+				FsaidaProduto(); break;
 			case 3:
-				FsaldoProdutos(); break;
+				FsaldoProduto(); break;
 			case 0:
 				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
 			default:
@@ -166,40 +175,64 @@ using namespace std;
 		
 	}
 	
-	void FentradaDeProdutos(){
-		
+	void FentradaProduto(){
+				
 		system("cls"); //system("clear"); - Para Linux
 		
-		FsaldoProdutos();Sleep(3000);
+		//FsaldoProdutos();Sleep(3000);
 		
-		/*cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
-		cout<<"				Informe o valor da entrada: R$ ";
-		cin>>varianteCaixa; cout<<endl<<endl;
-		saldoCaixa=saldoCaixa+varianteCaixa;
-		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);*/	
+		cout<<"				Produtos - Cadastro"<<endl<<endl;
+		cout<<"				Informe a quantidade de produtos: "<<endl<<endl;
 		
+		cout<<"				COD 0001 Arroz pct 5kg ========= "; cin>>quantProdutos[0];
+        cout<<"				COD 0002 Feijão pct 1kg ======== "; cin>>quantProdutos[1];
+        cout<<"				COD 0003 Óleo 900ml ============ "; cin>>quantProdutos[2];
+        cout<<"				COD 0004 Açucar pct 1kg ======== "; cin>>quantProdutos[3];
+        cout<<"				COD 0005 Batata kg ============= "; cin>>quantProdutos[4];
+        cout<<"				COD 0006 Cebola kg ============= "; cin>>quantProdutos[5];
+        cout<<"				COD 0007 Alho kg =============== "; cin>>quantProdutos[6];
+        cout<<"				COD 0008 Alface unid =========== "; cin>>quantProdutos[7];
 		
-		
+		FsaldoProduto();
 
-		
+				
 	}
 	
-	void FsaldoProdutos(){
+	void FsaldoProduto(){
+		
+		system("cls"); //system("clear"); - Para Linux	
+		
+		cout<<"				Produtos - Saldo"<<endl<<endl;
+		
+		cout<<"				COD 0001 Arroz pct 5kg ========= "<<quantProdutos[0]<<endl;
+        cout<<"				COD 0002 Feijão pct 1kg ======== "<<quantProdutos[1]<<endl;
+        cout<<"				COD 0003 Óleo 900ml ============ "<<quantProdutos[2]<<endl;
+        cout<<"				COD 0004 Açucar pct 1kg ======== "<<quantProdutos[3]<<endl;
+        cout<<"				COD 0005 Batata kg ============= "<<quantProdutos[4]<<endl;
+        cout<<"				COD 0006 Cebola kg ============= "<<quantProdutos[5]<<endl;
+        cout<<"				COD 0007 Alho kg =============== "<<quantProdutos[6]<<endl;
+        cout<<"				COD 0008 Alface unid =========== "<<quantProdutos[7]<<endl<<endl;
+        cout<<"				";system("pause");
+					
+	}
+	
+	void FsaidaProduto(){
 		
 		system("cls"); //system("clear"); - Para Linux
 		
-		cout<<"				COD 0001 Arroz pct 5kg ========= "<<produtos[0]<<endl;
-        cout<<"				COD 0002 Feijão pct 1kg ======== "<<produtos[1]<<endl;
-        cout<<"				COD 0003 Óleo 900ml ============ "<<produtos[2]<<endl;
-        cout<<"				COD 0004 Açucar pct 1kg ======== "<<produtos[3]<<endl;
-        cout<<"				COD 0005 Batata kg ============= "<<produtos[4]<<endl;
-        cout<<"				COD 0006 Cebola kg ============= "<<produtos[5]<<endl;
-        cout<<"				COD 0007 Alho kg =============== "<<produtos[6]<<endl;
-        cout<<"				COD 0008 Alface unid =========== "<<produtos[7]<<endl<<endl;
-		cout<<"				";system("pause");
-			
+		cout<<"				Produtos - Saída"<<endl<<endl;
+		cout<<"				Informe a quantidade da retirada de produtos: "<<endl<<endl;
+		   
+        cout<<"				COD 0001 Arroz pct 5kg ========= ";cin>>saidaProduto;quantProdutos[0]=quantProdutos[0]-saidaProduto;
+		cout<<"				COD 0002 Feijão pct 1kg ======== ";cin>>saidaProduto;quantProdutos[1]=quantProdutos[1]-saidaProduto;
+        cout<<"				COD 0003 Óleo 900ml ============ ";cin>>saidaProduto;quantProdutos[2]=quantProdutos[2]-saidaProduto;
+        cout<<"				COD 0004 Açucar pct 1kg ======== ";cin>>saidaProduto;quantProdutos[3]=quantProdutos[3]-saidaProduto;
+        cout<<"				COD 0005 Batata kg ============= ";cin>>saidaProduto;quantProdutos[4]=quantProdutos[4]-saidaProduto;
+        cout<<"				COD 0006 Cebola kg ============= ";cin>>saidaProduto;quantProdutos[5]=quantProdutos[5]-saidaProduto;
+        cout<<"				COD 0007 Alho kg =============== ";cin>>saidaProduto;quantProdutos[6]=quantProdutos[6]-saidaProduto;
+        cout<<"				COD 0008 Alface unid =========== ";cin>>saidaProduto;quantProdutos[7]=quantProdutos[7]-saidaProduto;
 		
-		
+		FsaldoProduto();		
 	}
 		
 	
