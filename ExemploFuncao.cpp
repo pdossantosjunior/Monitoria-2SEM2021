@@ -3,7 +3,7 @@
 #include <locale.h>
 using namespace std;
 
-	void Ftabuada();
+	void Ftabuada(); //Prototipagem
 	
 	int main(){
 
@@ -18,7 +18,7 @@ using namespace std;
 		int i,numero; //Declração de variável
 		
 		cout<<"Digite um número: ";
-		cin>>numero;
+		cin>>numero;cout<<endl;
 		
 		for (i=0;i<=10;i++){
 			cout<<numero<<" X "<<i<<" = "<<i*numero<<endl;
