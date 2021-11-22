@@ -12,6 +12,8 @@ using namespace std;
 	int opcao; //Variáveis do menu
 	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variáveis do caixa
 	int opcaoProduto, quantProdutos[8], saidaProduto;  //Variáveis de produtos
+	float precoProdutos[8]; //Variáveis de produtos
+	int opcaocpf, cpfCNPJ; //Variáveis de vendas
 	
 	
 	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
@@ -27,16 +29,27 @@ using namespace std;
 	void FentradaProduto();
 	void FsaldoProduto();
 	void FsaidaProduto();
+	void FlancamentoPrecos();
+	void FtabelaPrecos();
+	
+	//PROTOTIPAGEM DAS FUNÇÕES DE VENDAS
+	
+	void FopcaoCPF();
+	void FsemCPF();
+	void FcomCPF();
 	
 	//FUNÇÃO PRINCIPAL
 
 	int main(){
 
 	setlocale(LC_ALL,"portuguese");
+	
+	system("cls"); //system("clear"); - Para Linux
 
 	do{
 		
 		cout<<"				Informe uma opção:"<<endl<<endl;
+		
 		cout<<"				| 1 | Controle de caixa"<<endl;
 		cout<<"				| 2 | Balanço de Estoque"<<endl;
 		cout<<"				| 3 | Vendas"<<endl;
@@ -50,9 +63,7 @@ using namespace std;
 		case 2:
 			FbalancoEstoque(); break;
 		case 3:
-			cout<<"				É três"<<endl<<endl; Sleep(1000); break;
-		case 4:
-			cout<<"				É quatro"<<endl<<endl; Sleep(1000); break;
+			FopcaoCPF(); break;
 		case 0:
 			cout<<"				Até breve!"<<endl<<endl; Sleep(2000); break;
 		default: 
@@ -61,14 +72,12 @@ using namespace std;
 		
 		system("cls"); //system("clear"); - Para Linux
 				
-	} while (opcao != 0);
-		
-	
+	} while (opcao != 0);	
 
     //system("pause");
 	}
 	
-	//FUNÇÃO DE CONTROLE DE CAIXA
+	//FUNÇÕES DE CONTROLE DE CAIXA
 	
 	void FcontroleCaixa(){
 		
@@ -94,7 +103,7 @@ using namespace std;
 			case 3:
 				FsaldoCaixa(); break;
 			case 0:
-				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
+				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); main(); break;
 			default:
 				cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);
 			
@@ -136,7 +145,7 @@ using namespace std;
 		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
 	}
 	
-	//FUNÇÃO DE ENTRADA DE PRODUTOS
+	//FUNÇÕES DE ENTRADA DE PRODUTOS
 	
 	void FbalancoEstoque(){
 		
@@ -150,6 +159,8 @@ using namespace std;
 		cout<<"				| 1 | Entrada de produto"<<endl;
 		cout<<"				| 2 | Saída de produto"<<endl;
 		cout<<"				| 3 | Saldo de produtos em estoque"<<endl;
+		cout<<"				| 4 | Lançamento de preços"<<endl;
+		cout<<"				| 5 | Tabela de preços"<<endl;
 		cout<<"				| 0 | Voltar ao menu anterior"<<endl<<endl;
 		cout<<"				";cin>>opcaoProduto;cout<<endl;
 		
@@ -161,8 +172,12 @@ using namespace std;
 				FsaidaProduto(); break;
 			case 3:
 				FsaldoProduto(); break;
+			case 4:
+				FlancamentoPrecos(); break;
+			case 5:
+				FtabelaPrecos(); break;
 			case 0:
-				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); break;
+				cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); main(); break;
 			default:
 				cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);
 			
@@ -193,9 +208,7 @@ using namespace std;
         cout<<"				COD 0007 Alho kg =============== "; cin>>quantProdutos[6];
         cout<<"				COD 0008 Alface unid =========== "; cin>>quantProdutos[7];
 		
-		FsaldoProduto();
-
-				
+		FsaldoProduto();			
 	}
 	
 	void FsaldoProduto(){
@@ -212,15 +225,14 @@ using namespace std;
         cout<<"				COD 0006 Cebola kg ============= "<<quantProdutos[5]<<endl;
         cout<<"				COD 0007 Alho kg =============== "<<quantProdutos[6]<<endl;
         cout<<"				COD 0008 Alface unid =========== "<<quantProdutos[7]<<endl<<endl;
-        cout<<"				";system("pause");
-					
+        cout<<"				";system("pause");			
 	}
 	
 	void FsaidaProduto(){
 		
 		system("cls"); //system("clear"); - Para Linux
 		
-		cout<<"				Produtos - Saída"<<endl<<endl;
+		cout<<"				Produtos - Saída"<<endl;
 		cout<<"				Informe a quantidade da retirada de produtos: "<<endl<<endl;
 		   
         cout<<"				COD 0001 Arroz pct 5kg ========= ";cin>>saidaProduto;quantProdutos[0]=quantProdutos[0]-saidaProduto;
@@ -234,7 +246,98 @@ using namespace std;
 		
 		FsaldoProduto();		
 	}
+	
+	void FlancamentoPrecos(){
+				
+		system("cls"); //system("clear"); - Para Linux
 		
+		cout<<"				Produtos - Lançamento de preços"<<endl;
+		cout<<"				Informe o preço dos produtos: "<<endl<<endl;
+		
+		cout<<"				Obs.: Use '.' no lugar de ',' ."<<endl<<endl;
+		   
+        cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";cin>>precoProdutos[0];
+		cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";cin>>precoProdutos[1];
+        cout<<"				COD 0003 Óleo 900ml ============ R$ ";cin>>precoProdutos[2];
+        cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";cin>>precoProdutos[3];
+        cout<<"				COD 0005 Batata kg ============= R$ ";cin>>precoProdutos[4];
+        cout<<"				COD 0006 Cebola kg ============= R$ ";cin>>precoProdutos[5];
+        cout<<"				COD 0007 Alho kg =============== R$ ";cin>>precoProdutos[6];
+        cout<<"				COD 0008 Alface unid =========== R$ ";cin>>precoProdutos[7];cout<<endl;
+        
+        cout<<"				";system("pause"); system("cls"); //system("clear"); - Para Linux
+        
+        FtabelaPrecos();
+	}
+        
+        
+    void FtabelaPrecos(){
+    	
+    	system("cls"); //system("clear"); - Para Linux
+        
+        cout<<"				Produtos - Tabela de preços"<<endl;
+		cout<<"				Preço dos produtos: "<<endl<<endl;
+		   
+        cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";printf("%5.2f",precoProdutos[0]);cout<<endl;  //O printf está tratando a impressão do valor 
+		cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[1]);cout<<endl;  //para que a impressão saía de forma correta
+        cout<<"				COD 0003 Óleo 900ml ============ R$ ";printf("%5.2f",precoProdutos[2]);cout<<endl;	//ao invés de sair 5, sairá 5,00
+        cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[3]);cout<<endl;	//o 5.2 é 5 de cinco algarismos ao total e o dois
+        cout<<"				COD 0005 Batata kg ============= R$ ";printf("%5.2f",precoProdutos[4]);cout<<endl;	//é a quantidade de algarismos depois da vírgula 
+        cout<<"				COD 0006 Cebola kg ============= R$ ";printf("%5.2f",precoProdutos[5]);cout<<endl;
+        cout<<"				COD 0007 Alho kg =============== R$ ";printf("%5.2f",precoProdutos[6]);cout<<endl;
+        cout<<"				COD 0008 Alface unid =========== R$ ";printf("%5.2f",precoProdutos[7]);cout<<endl<<endl;
+        		
+		cout<<"				";system("pause"); system("cls"); //system("clear"); - Para Linux        
+	}
+	
+	//FUNÇÕES DE VENDAS
+	
+	void FopcaoCPF(){
+		
+		system("cls"); //system("clear"); - Para Linux
+		
+		do{
+			
+		cout<<"				Olá, você está no menu de CPF"<<endl   
+		<<"				Informe uma opção:"<<endl<<endl;
+		
+		cout<<"				| 1 | Nota com CPF/CNPJ"<<endl;
+		cout<<"				| 2 | Nota sem CPF/CNPJ"<<endl;	
+		cout<<"				| 0 | Voltar ao menu anterior"<<endl<<endl;
+		cout<<"				";cin>>opcaocpf;cout<<endl;
+		
+		switch(opcaocpf){
+		
+		case 1:
+			FcomCPF(); break;
+		case 2:
+			FsemCPF(); break;
+		case 0:
+			cout<<"				Voltando ao menu anterior!"<<endl<<endl; Sleep(1500); main(); break;
+		default: 
+			cout<<"				A opção digitada não foi reconhecida!"<<endl<<endl; Sleep(2500);		
+		}
+		
+		system("cls"); //system("clear"); - Para Linux
+				
+	} while (opcao != 0);			
+	}
+	
+	void FsemCPF(){
+	
+	
+	
+	}
+	
+	void FcomCPF(){
+		
+		cout<<"				Informe o CPF ou o CNPJ do cliente, para a nota fiscal: "<<endl;
+		cin>>cpfCNPJ;
+		
+		
+	}	
+	
+	
+	
 	
 	/////Fim do programa
-
