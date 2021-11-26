@@ -287,7 +287,7 @@ using namespace std;
         cout<<"				COD 0007 Alho kg =============== R$ ";printf("%5.2f",precoProdutos[6]);cout<<endl;
         cout<<"				COD 0008 Alface unid =========== R$ ";printf("%5.2f",precoProdutos[7]);cout<<endl<<endl;
         		
-		cout<<"				";system("pause"); system("cls"); //system("clear"); - Para Linux      
+		cout<<"				";system("pause"); system("cls"); //system("clear"); - Para Linux        
 	}
 	
 	//FUNÇÕES DE VENDAS
