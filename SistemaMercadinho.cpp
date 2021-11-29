@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <windows.h> //Biblioteca para usar o Sleep
-//#include <string> //Biblioteca String
-
 
 using namespace std;
 
@@ -14,7 +12,6 @@ using namespace std;
 	int opcaoProduto, entradaProdutos, quantProdutos[8], saidaProduto;  //Variáveis de produtos
 	float precoProdutos[8]; //Variáveis de produtos
 	int opcaocpf, cpfCNPJ, vendaProdutos[8]; //Variáveis de vendas
-	
 	
 	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
 
@@ -75,8 +72,6 @@ using namespace std;
 		system("cls"); //system("clear"); - Para Linux
 				
 	} while (opcao != 0);	
-
-    //system("pause");
 	}
 	
 	//FUNÇÕES DE CONTROLE DE CAIXA
@@ -118,10 +113,7 @@ using namespace std;
 	
 	void FsaldoCaixa(){
 		
-		//system("cls"); //system("clear"); - Para Linux
-		
-		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl; Sleep(2000);
-		//system("pause");		
+		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl; Sleep(2000);	
 		
 	}
 	
@@ -195,9 +187,7 @@ using namespace std;
 	void FentradaProduto(){
 				
 		system("cls"); //system("clear"); - Para Linux
-		
-		//FsaldoProdutos();Sleep(3000);
-		
+				
 		cout<<"				Produtos - Cadastro"<<endl<<endl;
 		cout<<"				Informe a quantidade de produtos: "<<endl<<endl;
 		
@@ -237,14 +227,14 @@ using namespace std;
 		cout<<"				Produtos - Saída"<<endl;
 		cout<<"				Informe a quantidade da retirada de produtos: "<<endl<<endl;
 		   
-        cout<<"				COD 0001 Arroz pct 5kg ========= ";cin>>saidaProduto;quantProdutos[0]=quantProdutos[0]-saidaProduto;
-		cout<<"				COD 0002 Feijão pct 1kg ======== ";cin>>saidaProduto;quantProdutos[1]=quantProdutos[1]-saidaProduto;
-        cout<<"				COD 0003 Óleo 900ml ============ ";cin>>saidaProduto;quantProdutos[2]=quantProdutos[2]-saidaProduto;
-        cout<<"				COD 0004 Açucar pct 1kg ======== ";cin>>saidaProduto;quantProdutos[3]=quantProdutos[3]-saidaProduto;
-        cout<<"				COD 0005 Batata kg ============= ";cin>>saidaProduto;quantProdutos[4]=quantProdutos[4]-saidaProduto;
-        cout<<"				COD 0006 Cebola kg ============= ";cin>>saidaProduto;quantProdutos[5]=quantProdutos[5]-saidaProduto;
-        cout<<"				COD 0007 Alho kg =============== ";cin>>saidaProduto;quantProdutos[6]=quantProdutos[6]-saidaProduto;
-        cout<<"				COD 0008 Alface unid =========== ";cin>>saidaProduto;quantProdutos[7]=quantProdutos[7]-saidaProduto;
+        cout<<"				COD 0001 Arroz pct 5kg ========= "; cin>>saidaProduto; quantProdutos[0]=quantProdutos[0]-saidaProduto;
+		cout<<"				COD 0002 Feijão pct 1kg ======== "; cin>>saidaProduto; quantProdutos[1]=quantProdutos[1]-saidaProduto;
+        cout<<"				COD 0003 Óleo 900ml ============ "; cin>>saidaProduto; quantProdutos[2]=quantProdutos[2]-saidaProduto;
+        cout<<"				COD 0004 Açucar pct 1kg ======== "; cin>>saidaProduto; quantProdutos[3]=quantProdutos[3]-saidaProduto;
+        cout<<"				COD 0005 Batata kg ============= "; cin>>saidaProduto; quantProdutos[4]=quantProdutos[4]-saidaProduto;
+        cout<<"				COD 0006 Cebola kg ============= "; cin>>saidaProduto; quantProdutos[5]=quantProdutos[5]-saidaProduto;
+        cout<<"				COD 0007 Alho kg =============== "; cin>>saidaProduto; quantProdutos[6]=quantProdutos[6]-saidaProduto;
+        cout<<"				COD 0008 Alface unid =========== "; cin>>saidaProduto; quantProdutos[7]=quantProdutos[7]-saidaProduto;
 		
 		FsaldoProduto();		
 	}
@@ -258,14 +248,14 @@ using namespace std;
 		
 		cout<<"				Obs.: Use '.' no lugar de ',' ."<<endl<<endl;
 		   
-        cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";cin>>precoProdutos[0];
-		cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";cin>>precoProdutos[1];
-        cout<<"				COD 0003 Óleo 900ml ============ R$ ";cin>>precoProdutos[2];
-        cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";cin>>precoProdutos[3];
-        cout<<"				COD 0005 Batata kg ============= R$ ";cin>>precoProdutos[4];
-        cout<<"				COD 0006 Cebola kg ============= R$ ";cin>>precoProdutos[5];
-        cout<<"				COD 0007 Alho kg =============== R$ ";cin>>precoProdutos[6];
-        cout<<"				COD 0008 Alface unid =========== R$ ";cin>>precoProdutos[7];cout<<endl;
+        cout<<"				COD 0001 Arroz pct 5kg ========= R$ "; cin>>precoProdutos[0];
+		cout<<"				COD 0002 Feijão pct 1kg ======== R$ "; cin>>precoProdutos[1];
+        cout<<"				COD 0003 Óleo 900ml ============ R$ "; cin>>precoProdutos[2];
+        cout<<"				COD 0004 Açucar pct 1kg ======== R$ "; cin>>precoProdutos[3];
+        cout<<"				COD 0005 Batata kg ============= R$ "; cin>>precoProdutos[4];
+        cout<<"				COD 0006 Cebola kg ============= R$ "; cin>>precoProdutos[5];
+        cout<<"				COD 0007 Alho kg =============== R$ "; cin>>precoProdutos[6];
+        cout<<"				COD 0008 Alface unid =========== R$ "; cin>>precoProdutos[7]; cout<<endl;
         
         cout<<"				";system("pause"); system("cls"); //system("clear"); - Para Linux
         
@@ -280,14 +270,14 @@ using namespace std;
         cout<<"				Produtos - Tabela de preços"<<endl;
 		cout<<"				Preço dos produtos: "<<endl<<endl;
 		   
-        cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";printf("%5.2f",precoProdutos[0]);cout<<endl;  //O printf está tratando a impressão do valor 
-		cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[1]);cout<<endl;  //para que a impressão saía de forma correta
-        cout<<"				COD 0003 Óleo 900ml ============ R$ ";printf("%5.2f",precoProdutos[2]);cout<<endl;	//ao invés de sair 5, sairá 5,00
-        cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[3]);cout<<endl;	//o 5.2 é 5 de cinco algarismos ao total e o dois
-        cout<<"				COD 0005 Batata kg ============= R$ ";printf("%5.2f",precoProdutos[4]);cout<<endl;	//é a quantidade de algarismos depois da vírgula 
-        cout<<"				COD 0006 Cebola kg ============= R$ ";printf("%5.2f",precoProdutos[5]);cout<<endl;
-        cout<<"				COD 0007 Alho kg =============== R$ ";printf("%5.2f",precoProdutos[6]);cout<<endl;
-        cout<<"				COD 0008 Alface unid =========== R$ ";printf("%5.2f",precoProdutos[7]);cout<<endl<<endl;
+        cout<<"				COD 0001 Arroz pct 5kg ========= R$ "; printf("%5.2f",precoProdutos[0]); cout<<endl;  //O printf está tratando a impressão do valor 
+		cout<<"				COD 0002 Feijão pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[1]); cout<<endl;  //para que a impressão saía de forma correta
+        cout<<"				COD 0003 Óleo 900ml ============ R$ "; printf("%5.2f",precoProdutos[2]); cout<<endl;	//ao invés de sair 5, sairá 5,00
+        cout<<"				COD 0004 Açucar pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[3]); cout<<endl;	//o 5.2 é 5 de cinco algarismos ao total e o dois
+        cout<<"				COD 0005 Batata kg ============= R$ "; printf("%5.2f",precoProdutos[4]); cout<<endl;	//é a quantidade de algarismos depois da vírgula 
+        cout<<"				COD 0006 Cebola kg ============= R$ "; printf("%5.2f",precoProdutos[5]); cout<<endl;
+        cout<<"				COD 0007 Alho kg =============== R$ "; printf("%5.2f",precoProdutos[6]); cout<<endl;
+        cout<<"				COD 0008 Alface unid =========== R$ "; printf("%5.2f",precoProdutos[7]); cout<<endl<<endl;
         		
 		cout<<"				";system("pause"); system("cls"); //system("clear"); - Para Linux        
 	}
@@ -323,6 +313,7 @@ using namespace std;
 		system("cls"); //system("clear"); - Para Linux
 				
 	} while (opcao != 0);			
+
 	}
 	
 	void FsemCPF(){
@@ -336,6 +327,8 @@ using namespace std;
 		cout<<"				Informe o CPF ou o CNPJ do cliente, para a nota fiscal: "<<endl;
 		cout<<"				";cin>>cpfCNPJ;
 		
+		system("cls"); //system("clear"); - Para Linux
+		
 		FvendaProdutos();		
 	}
 	
@@ -348,42 +341,41 @@ using namespace std;
 		  
 		cout<<"					DESCRIÇÃO DO PRODUTO	  PREÇO		QTD"<<endl<<endl; 
 		  
-        cout<<"				COD 0001 Arroz pct 5kg ========= R$ "; printf("%5.2f",precoProdutos[0]); cout<<"	"; cin>>saidaProduto; quantProdutos[0]=quantProdutos[0]-saidaProduto; vendaProdutos[0]=saidaProduto; cout<<endl;          
-		cout<<"				COD 0002 Feijão pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[1]); cout<<"	"; cin>>saidaProduto; quantProdutos[1]=quantProdutos[1]-saidaProduto; vendaProdutos[1]=saidaProduto; cout<<endl; 
-        cout<<"				COD 0003 Óleo 900ml ============ R$ "; printf("%5.2f",precoProdutos[2]); cout<<"	"; cin>>saidaProduto; quantProdutos[2]=quantProdutos[2]-saidaProduto; vendaProdutos[2]=saidaProduto; cout<<endl;	
-        cout<<"				COD 0004 Açucar pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[3]); cout<<"	"; cin>>saidaProduto; quantProdutos[3]=quantProdutos[3]-saidaProduto; vendaProdutos[3]=saidaProduto; cout<<endl;	
-        cout<<"				COD 0005 Batata kg ============= R$ "; printf("%5.2f",precoProdutos[4]); cout<<"	"; cin>>saidaProduto; quantProdutos[4]=quantProdutos[4]-saidaProduto; vendaProdutos[4]=saidaProduto; cout<<endl;	
-        cout<<"				COD 0006 Cebola kg ============= R$ "; printf("%5.2f",precoProdutos[5]); cout<<"	"; cin>>saidaProduto; quantProdutos[5]=quantProdutos[5]-saidaProduto; vendaProdutos[5]=saidaProduto; cout<<endl;
-        cout<<"				COD 0007 Alho kg =============== R$ "; printf("%5.2f",precoProdutos[6]); cout<<"	"; cin>>saidaProduto; quantProdutos[6]=quantProdutos[6]-saidaProduto; vendaProdutos[6]=saidaProduto; cout<<endl;
+        cout<<"				COD 0001 Arroz pct 5kg ========= R$ "; printf("%5.2f",precoProdutos[0]); cout<<"	"; cin>>saidaProduto; quantProdutos[0]=quantProdutos[0]-saidaProduto; vendaProdutos[0]=saidaProduto;          
+		cout<<"				COD 0002 Feijão pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[1]); cout<<"	"; cin>>saidaProduto; quantProdutos[1]=quantProdutos[1]-saidaProduto; vendaProdutos[1]=saidaProduto;
+        cout<<"				COD 0003 Óleo 900ml ============ R$ "; printf("%5.2f",precoProdutos[2]); cout<<"	"; cin>>saidaProduto; quantProdutos[2]=quantProdutos[2]-saidaProduto; vendaProdutos[2]=saidaProduto;
+        cout<<"				COD 0004 Açucar pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[3]); cout<<"	"; cin>>saidaProduto; quantProdutos[3]=quantProdutos[3]-saidaProduto; vendaProdutos[3]=saidaProduto;
+        cout<<"				COD 0005 Batata kg ============= R$ "; printf("%5.2f",precoProdutos[4]); cout<<"	"; cin>>saidaProduto; quantProdutos[4]=quantProdutos[4]-saidaProduto; vendaProdutos[4]=saidaProduto;	
+        cout<<"				COD 0006 Cebola kg ============= R$ "; printf("%5.2f",precoProdutos[5]); cout<<"	"; cin>>saidaProduto; quantProdutos[5]=quantProdutos[5]-saidaProduto; vendaProdutos[5]=saidaProduto;
+        cout<<"				COD 0007 Alho kg =============== R$ "; printf("%5.2f",precoProdutos[6]); cout<<"	"; cin>>saidaProduto; quantProdutos[6]=quantProdutos[6]-saidaProduto; vendaProdutos[6]=saidaProduto;
         cout<<"				COD 0008 Alface unid =========== R$ "; printf("%5.2f",precoProdutos[7]); cout<<"	"; cin>>saidaProduto; quantProdutos[7]=quantProdutos[7]-saidaProduto; vendaProdutos[7]=saidaProduto; cout<<endl<<endl;
         		
-		cout<<"				";system("pause"); system("cls"); //system("clear"); - Para Linux 
-		FimprimiCupom();		
+		cout<<"				"; system("pause"); system("cls"); //system("clear"); - Para Linux 
+		
+		FimprimiCupom();
+				
 	}	
 	
 	void FimprimiCupom(){
-		
-		
-		cout<<"Mercadicadinho da Dona Maria"<<endl;
-	cout<<"Avenida: Sete de Setembro, 1578 Bairro Carmo 14807-150"<<endl;
-	cout<<"CNPJ 35.689.754/0001-05 IE 181.568.058.111 IM 877.201"<<endl<<endl;
-	cout<<"EXTRATO 205458"<<endl;
-	cout<<"CUPOM FISCAL ELETRONICO - SAT"<<endl;
+			
+	cout<<"				Mercadicadinho da Dona Maria"<<endl;
+	cout<<"				Avenida: Sete de Setembro, 1578 Bairro Carmo 14807-150"<<endl;
+	cout<<"				CNPJ 35.689.754/0001-05 IE 181.568.058.111 IM 877.201"<<endl<<endl;
+	cout<<"				EXTRATO 205458"<<endl;
+	cout<<"				CUPOM FISCAL ELETRONICO - SAT"<<endl;
 
-	cout<<"Consumidor quer Nota Fiscal Paulista: 1 - Quer NFP | 2 - NÃ£o Quer NFP "<<endl;
+	cout<<"				Consumidor quer Nota Fiscal Paulista: 1 - Quer NFP | 2 - NÃ£o Quer NFP "<<endl<<endl;
 	//cin>>tipo;
 	
-		cout<<"					DESCRIÇÃO DO PRODUTO	  PREÇO		QTD"<<endl<<endl;   
-        cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";
-		printf("%5.2f",precoProdutos[0]*vendaProdutos[0]);
-		cout<<"	"<<vendaProdutos[0]<<endl;           
-		cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[1]*vendaProdutos[1]);cout<<"	"<<vendaProdutos[1]<<endl; 
-        cout<<"				COD 0003 Óleo 900ml ============ R$ ";printf("%5.2f",precoProdutos[2]*vendaProdutos[2]);cout<<"	"<<vendaProdutos[2]<<endl;
-        cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[3]*vendaProdutos[3]);cout<<"	"<<vendaProdutos[3]<<endl;	
-        cout<<"				COD 0005 Batata kg ============= R$ ";printf("%5.2f",precoProdutos[4]*vendaProdutos[4]);cout<<"	"<<vendaProdutos[4]<<endl;	
-        cout<<"				COD 0006 Cebola kg ============= R$ ";printf("%5.2f",precoProdutos[5]*vendaProdutos[5]);cout<<"	"<<vendaProdutos[5]<<endl;
-        cout<<"				COD 0007 Alho kg =============== R$ ";printf("%5.2f",precoProdutos[6]*vendaProdutos[6]);cout<<"	"<<vendaProdutos[6]<<endl;
-        cout<<"				COD 0008 Alface unid =========== R$ ";printf("%5.2f",precoProdutos[7]*vendaProdutos[7]);cout<<"	"<<vendaProdutos[7]<<endl<<endl;	
+	cout<<"					DESCRIÇÃO DO PRODUTO	  PREÇO		QTD"<<endl<<endl;   
+    cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";printf("%5.2f",precoProdutos[0]*vendaProdutos[0]);cout<<"	"<<vendaProdutos[0]<<endl;           
+	cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[1]*vendaProdutos[1]);cout<<"	"<<vendaProdutos[1]<<endl; 
+    cout<<"				COD 0003 Óleo 900ml ============ R$ ";printf("%5.2f",precoProdutos[2]*vendaProdutos[2]);cout<<"	"<<vendaProdutos[2]<<endl;
+    cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[3]*vendaProdutos[3]);cout<<"	"<<vendaProdutos[3]<<endl;	
+    cout<<"				COD 0005 Batata kg ============= R$ ";printf("%5.2f",precoProdutos[4]*vendaProdutos[4]);cout<<"	"<<vendaProdutos[4]<<endl;	
+    cout<<"				COD 0006 Cebola kg ============= R$ ";printf("%5.2f",precoProdutos[5]*vendaProdutos[5]);cout<<"	"<<vendaProdutos[5]<<endl;
+    cout<<"				COD 0007 Alho kg =============== R$ ";printf("%5.2f",precoProdutos[6]*vendaProdutos[6]);cout<<"	"<<vendaProdutos[6]<<endl;
+    cout<<"				COD 0008 Alface unid =========== R$ ";printf("%5.2f",precoProdutos[7]*vendaProdutos[7]);cout<<"	"<<vendaProdutos[7]<<endl<<endl;	
 	
 		
 		
@@ -393,23 +385,20 @@ using namespace std;
 		
 		
 		
-		/*cout<<"Total Bruto de Itens -  "<<totalDaCompra<<endl;
-        cout<<"Total ===============R$ "<<totalDaCompra<<endl;
-        cout<<"Dinheiro ============== 205.00"<<endl;
-        cout<<"Troco ===============R$ 1.03"<<endl<<endl;
+	/*
+	cout<<"Total Bruto de Itens -  "<<totalDaCompra<<endl;
+    cout<<"Total ===============R$ "<<totalDaCompra<<endl;
+    cout<<"Dinheiro ============== 205.00"<<endl;
+    cout<<"Troco ===============R$ 1.03"<<endl<<endl;
 
-        cout<<"TROCA E DEVOLUÃ‡ÃƒO SOMENTE COM A APRESENTAÃ‡ÃƒO DO CUPOM FISCAL"<<endl;
-        cout<<"SAC: 0800 00000001 - TELEFONE: 16 - 33000001"<<endl;
-        cout<<"Operador: 001454 - Joãoo Carlos Junior"<<endl;
-        cout<<"31/10/2021 Loja 1 PVD: 05 COD 393570";*/
+    cout<<"TROCA E DEVOLUÃ‡ÃƒO SOMENTE COM A APRESENTAÃ‡ÃƒO DO CUPOM FISCAL"<<endl;
+    cout<<"SAC: 0800 00000001 - TELEFONE: 16 - 33000001"<<endl;
+    cout<<"Operador: 001454 - Joãoo Carlos Junior"<<endl;
+    cout<<"31/10/2021 Loja 1 PVD: 05 COD 393570";
+	*/
 		
-		system("pause");
-		
+	cout<<"				"; system("pause");		
 		
 	}
-	
-	
-	
-	
 	
 	/////Fim do programa
