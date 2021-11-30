@@ -364,7 +364,7 @@ using namespace std;
 	cout<<"				EXTRATO 205458"<<endl;
 	cout<<"				CUPOM FISCAL ELETRONICO - SAT"<<endl;
 
-	cout<<"				Consumidor quer Nota Fiscal Paulista: 1 - Quer NFP | 2 - NÃ£o Quer NFP "<<endl<<endl;
+	cout<<"				Consumidor quer Nota Fiscal Paulista: 1 - Quer NFP | 2 - Não Quer NFP "<<endl<<endl;
 	//cin>>tipo;
 	
 	cout<<"					DESCRIÇÃO DO PRODUTO	  PREÇO		QTD"<<endl<<endl;   
