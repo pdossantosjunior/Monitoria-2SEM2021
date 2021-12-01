@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <windows.h> //Biblioteca para usar o Sleep
+#include<time.h> //Biblioteca para imprimir a data
 
 using namespace std;
 
@@ -11,7 +12,7 @@ using namespace std;
 	int opcaoCaixa; float saldoCaixa, varianteCaixa; //Variáveis do caixa
 	int opcaoProduto, entradaProdutos, quantProdutos[8], saidaProduto;  //Variáveis de produtos
 	float precoProdutos[8]; //Variáveis de produtos
-	int opcaocpf, cpfCNPJ, vendaProdutos[8]; //Variáveis de vendas
+	int opcaocpf, cpfCNPJ, vendaProdutos[8], totalprodutosvenda; float valortotalvenda, valorPago, troco; //Variáveis de vendas
 	
 	//PROTOTIPAGEM DAS FUNÇÕES DO CAIXA
 
@@ -36,6 +37,7 @@ using namespace std;
 	void FcomCPF();
 	void FvendaProdutos();
 	void FimprimiCupom();
+	void FformaPagamento();
 	
 	//FUNÇÃO PRINCIPAL
 
@@ -113,7 +115,7 @@ using namespace std;
 	
 	void FsaldoCaixa(){
 		
-		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl; Sleep(2000);	
+		cout<<"				O saldo atual em caixa é: R$ "; printf("%5.2f",saldoCaixa); cout<<endl; Sleep(2000);	
 		
 	}
 	
@@ -121,22 +123,26 @@ using namespace std;
 		
 		system("cls"); //system("clear"); - Para Linux
 		
-		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
+		cout<<"				O saldo atual em caixa é: R$ "; printf("%5.2f",saldoCaixa); cout<<endl<<endl;
 		cout<<"				Informe o valor da entrada: R$ ";
 		cin>>varianteCaixa; cout<<endl<<endl;
+		
 		saldoCaixa=saldoCaixa+varianteCaixa;
-		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
+		
+		cout<<"				O novo saldo atual em caixa é: R$ "; printf("%5.2f",saldoCaixa); cout<<endl<<endl; Sleep(2500);		
 	}
 	
 	void FsaidaCaixa(){
 		
 		system("cls"); //system("clear"); - Para Linux
 		
-		cout<<"				O saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;
+		cout<<"				O saldo atual em caixa é: R$ "; printf("%5.2f",saldoCaixa); cout<<endl<<endl;
 		cout<<"				Informe o valor da saída: R$ ";
 		cin>>varianteCaixa; cout<<endl<<endl;
+		
 		saldoCaixa=saldoCaixa-varianteCaixa;
-		cout<<"				O novo saldo atual em caixa é: R$ "<<saldoCaixa<<endl<<endl;Sleep(2500);		
+		
+		cout<<"				O novo saldo atual em caixa é: R$ "; printf("%5.2f",saldoCaixa); cout<<endl<<endl; Sleep(2500);		
 	}
 	
 	//FUNÇÕES DE ENTRADA DE PRODUTOS
@@ -272,9 +278,9 @@ using namespace std;
 		   
         cout<<"				COD 0001 Arroz pct 5kg ========= R$ "; printf("%5.2f",precoProdutos[0]); cout<<endl;  //O printf está tratando a impressão do valor 
 		cout<<"				COD 0002 Feijão pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[1]); cout<<endl;  //para que a impressão saía de forma correta
-        cout<<"				COD 0003 Óleo 900ml ============ R$ "; printf("%5.2f",precoProdutos[2]); cout<<endl;	//ao invés de sair 5, sairá 5,00
-        cout<<"				COD 0004 Açucar pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[3]); cout<<endl;	//o 5.2 é 5 de cinco algarismos ao total e o dois
-        cout<<"				COD 0005 Batata kg ============= R$ "; printf("%5.2f",precoProdutos[4]); cout<<endl;	//é a quantidade de algarismos depois da vírgula 
+        cout<<"				COD 0003 Óleo 900ml ============ R$ "; printf("%5.2f",precoProdutos[2]); cout<<endl;  //ao invés de sair 5, sairá 5,00
+        cout<<"				COD 0004 Açucar pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[3]); cout<<endl;  //o 5.2 é 5 de cinco algarismos ao total e o dois
+        cout<<"				COD 0005 Batata kg ============= R$ "; printf("%5.2f",precoProdutos[4]); cout<<endl;  //é a quantidade de algarismos depois da vírgula 
         cout<<"				COD 0006 Cebola kg ============= R$ "; printf("%5.2f",precoProdutos[5]); cout<<endl;
         cout<<"				COD 0007 Alho kg =============== R$ "; printf("%5.2f",precoProdutos[6]); cout<<endl;
         cout<<"				COD 0008 Alface unid =========== R$ "; printf("%5.2f",precoProdutos[7]); cout<<endl<<endl;
@@ -334,6 +340,8 @@ using namespace std;
 	
 	void FvendaProdutos(){
 		
+		saidaProduto=0;
+		
 		system("cls"); //system("clear"); - Para Linux
         
         cout<<"				Vendas - Saída de produtos"<<endl;
@@ -341,7 +349,7 @@ using namespace std;
 		  
 		cout<<"					DESCRIÇÃO DO PRODUTO	  PREÇO		QTD"<<endl<<endl; 
 		  
-        cout<<"				COD 0001 Arroz pct 5kg ========= R$ "; printf("%5.2f",precoProdutos[0]); cout<<"	"; cin>>saidaProduto; quantProdutos[0]=quantProdutos[0]-saidaProduto; vendaProdutos[0]=saidaProduto;          
+        cout<<"				COD 0001 Arroz pct 5kg ========= R$ "; printf("%5.2f",precoProdutos[0]); cout<<"	"; cin>>saidaProduto; quantProdutos[0]=quantProdutos[0]-saidaProduto; vendaProdutos[0]=saidaProduto;
 		cout<<"				COD 0002 Feijão pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[1]); cout<<"	"; cin>>saidaProduto; quantProdutos[1]=quantProdutos[1]-saidaProduto; vendaProdutos[1]=saidaProduto;
         cout<<"				COD 0003 Óleo 900ml ============ R$ "; printf("%5.2f",precoProdutos[2]); cout<<"	"; cin>>saidaProduto; quantProdutos[2]=quantProdutos[2]-saidaProduto; vendaProdutos[2]=saidaProduto;
         cout<<"				COD 0004 Açucar pct 1kg ======== R$ "; printf("%5.2f",precoProdutos[3]); cout<<"	"; cin>>saidaProduto; quantProdutos[3]=quantProdutos[3]-saidaProduto; vendaProdutos[3]=saidaProduto;
@@ -350,55 +358,73 @@ using namespace std;
         cout<<"				COD 0007 Alho kg =============== R$ "; printf("%5.2f",precoProdutos[6]); cout<<"	"; cin>>saidaProduto; quantProdutos[6]=quantProdutos[6]-saidaProduto; vendaProdutos[6]=saidaProduto;
         cout<<"				COD 0008 Alface unid =========== R$ "; printf("%5.2f",precoProdutos[7]); cout<<"	"; cin>>saidaProduto; quantProdutos[7]=quantProdutos[7]-saidaProduto; vendaProdutos[7]=saidaProduto; cout<<endl<<endl;
         		
-		cout<<"				"; system("pause"); system("cls"); //system("clear"); - Para Linux 
-		
-		FimprimiCupom();
-				
+		FformaPagamento();				
 	}	
 	
+	void FformaPagamento(){
+				
+		valortotalvenda=0;
+		totalprodutosvenda=0;
+		
+		valortotalvenda=valortotalvenda+(precoProdutos[0]*vendaProdutos[0]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[0];
+		valortotalvenda=valortotalvenda+(precoProdutos[1]*vendaProdutos[1]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[1];
+		valortotalvenda=valortotalvenda+(precoProdutos[2]*vendaProdutos[2]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[2];
+		valortotalvenda=valortotalvenda+(precoProdutos[3]*vendaProdutos[3]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[3];
+		valortotalvenda=valortotalvenda+(precoProdutos[4]*vendaProdutos[4]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[4];
+		valortotalvenda=valortotalvenda+(precoProdutos[5]*vendaProdutos[5]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[5];
+		valortotalvenda=valortotalvenda+(precoProdutos[6]*vendaProdutos[6]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[6];
+		valortotalvenda=valortotalvenda+(precoProdutos[7]*vendaProdutos[7]);	totalprodutosvenda=totalprodutosvenda+vendaProdutos[7];
+		
+		cout<<"				O valor total da venda é ============ R$ "; printf("%5.2f",valortotalvenda); cout<<endl<<endl;
+		
+		cout<<"				Obs.: Use '.' no lugar de ',' ."<<endl<<endl;
+		
+		cout<<"				Informe o valor pago pelo cliente: R$ "; cin>>valorPago; cout<<endl;
+		
+		troco=valorPago-valortotalvenda;
+		
+		cout<<"				O troco é de: R$ "; printf("%5.2f",troco); cout<<endl<<endl;
+		
+		saldoCaixa=saldoCaixa+valortotalvenda;
+		
+		cout<<"				"; system("pause"); system("cls"); //system("clear"); - Para Linux		
+		
+		FimprimiCupom();		
+	}
+	
 	void FimprimiCupom(){
-			
+		
+	char date[9];
+	_strdate(date);
+		
 	cout<<"				Mercadicadinho da Dona Maria"<<endl;
 	cout<<"				Avenida: Sete de Setembro, 1578 Bairro Carmo 14807-150"<<endl;
 	cout<<"				CNPJ 35.689.754/0001-05 IE 181.568.058.111 IM 877.201"<<endl<<endl;
-	cout<<"				EXTRATO 205458"<<endl;
-	cout<<"				CUPOM FISCAL ELETRONICO - SAT"<<endl;
+	cout<<"				CUPOM FISCAL ELETRONICO - SAT || EXTRATO 205458"<<endl<<endl;
 
-	cout<<"				Consumidor quer Nota Fiscal Paulista: 1 - Quer NFP | 2 - Não Quer NFP "<<endl<<endl;
-	//cin>>tipo;
+	cout<<"				Nota Fiscal Paulista - CPF/CNPJ "<<cpfCNPJ<<endl<<endl;
 	
 	cout<<"					DESCRIÇÃO DO PRODUTO	  PREÇO		QTD"<<endl<<endl;   
-    cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";printf("%5.2f",precoProdutos[0]*vendaProdutos[0]);cout<<"	"<<vendaProdutos[0]<<endl;           
-	cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[1]*vendaProdutos[1]);cout<<"	"<<vendaProdutos[1]<<endl; 
-    cout<<"				COD 0003 Óleo 900ml ============ R$ ";printf("%5.2f",precoProdutos[2]*vendaProdutos[2]);cout<<"	"<<vendaProdutos[2]<<endl;
-    cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[3]*vendaProdutos[3]);cout<<"	"<<vendaProdutos[3]<<endl;	
-    cout<<"				COD 0005 Batata kg ============= R$ ";printf("%5.2f",precoProdutos[4]*vendaProdutos[4]);cout<<"	"<<vendaProdutos[4]<<endl;	
-    cout<<"				COD 0006 Cebola kg ============= R$ ";printf("%5.2f",precoProdutos[5]*vendaProdutos[5]);cout<<"	"<<vendaProdutos[5]<<endl;
-    cout<<"				COD 0007 Alho kg =============== R$ ";printf("%5.2f",precoProdutos[6]*vendaProdutos[6]);cout<<"	"<<vendaProdutos[6]<<endl;
-    cout<<"				COD 0008 Alface unid =========== R$ ";printf("%5.2f",precoProdutos[7]*vendaProdutos[7]);cout<<"	"<<vendaProdutos[7]<<endl<<endl;	
 	
-		
-		
-		
-		
-		
-		
-		
-		
-	/*
-	cout<<"Total Bruto de Itens -  "<<totalDaCompra<<endl;
-    cout<<"Total ===============R$ "<<totalDaCompra<<endl;
-    cout<<"Dinheiro ============== 205.00"<<endl;
-    cout<<"Troco ===============R$ 1.03"<<endl<<endl;
-
-    cout<<"TROCA E DEVOLUÃ‡ÃƒO SOMENTE COM A APRESENTAÃ‡ÃƒO DO CUPOM FISCAL"<<endl;
-    cout<<"SAC: 0800 00000001 - TELEFONE: 16 - 33000001"<<endl;
-    cout<<"Operador: 001454 - Joãoo Carlos Junior"<<endl;
-    cout<<"31/10/2021 Loja 1 PVD: 05 COD 393570";
-	*/
+    cout<<"				COD 0001 Arroz pct 5kg ========= R$ ";printf("%5.2f",precoProdutos[0]*vendaProdutos[0]); cout<<"	"<<vendaProdutos[0]<<endl;           
+	cout<<"				COD 0002 Feijão pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[1]*vendaProdutos[1]); cout<<"	"<<vendaProdutos[1]<<endl; 
+    cout<<"				COD 0003 Óleo 900ml ============ R$ ";printf("%5.2f",precoProdutos[2]*vendaProdutos[2]); cout<<"	"<<vendaProdutos[2]<<endl; 
+    cout<<"				COD 0004 Açucar pct 1kg ======== R$ ";printf("%5.2f",precoProdutos[3]*vendaProdutos[3]); cout<<"	"<<vendaProdutos[3]<<endl; 
+    cout<<"				COD 0005 Batata kg ============= R$ ";printf("%5.2f",precoProdutos[4]*vendaProdutos[4]); cout<<"	"<<vendaProdutos[4]<<endl; 
+    cout<<"				COD 0006 Cebola kg ============= R$ ";printf("%5.2f",precoProdutos[5]*vendaProdutos[5]); cout<<"	"<<vendaProdutos[5]<<endl; 
+    cout<<"				COD 0007 Alho kg =============== R$ ";printf("%5.2f",precoProdutos[6]*vendaProdutos[6]); cout<<"	"<<vendaProdutos[6]<<endl; 
+    cout<<"				COD 0008 Alface unid =========== R$ ";printf("%5.2f",precoProdutos[7]*vendaProdutos[7]); cout<<"	"<<vendaProdutos[7]<<endl; 
+	cout<<endl;	
+			
+	cout<<"				Total Bruto de Itens ====================== QTD "<<totalprodutosvenda<<endl;
+    cout<<"				Total ================================== R$ "; printf("%5.2f",valortotalvenda); cout<<endl;
+    cout<<"				Dinheiro =============================== R$ "; printf("%5.2f",valorPago); cout<<endl;
+    cout<<"				Troco ================================== R$ "; printf("%5.2f",troco); cout<<endl<<endl;
+    
+    cout<<"				TROCA OU DEVOLUÇÃO SOMENTE COM A APRESENTAÇÃO DO CUPOM"<<endl;
+    cout<<"				SAC: 0800 00000001 - TELEFONE: 16 - 33000001"<<endl;
+    cout<<"				Operador: 001454 - João Carlos Junior"<<endl;
+    cout<<"				"<<date<<" Loja 1 PVD: 05 COD 393570"<<endl;
 		
 	cout<<"				"; system("pause");		
-		
-	}
-	
-	/////Fim do programa
+	}/////Fim do programa
